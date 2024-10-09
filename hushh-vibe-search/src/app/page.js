@@ -1,5 +1,6 @@
-import { Box, Text, Button, VStack, HStack, useBreakpointValue } from "@chakra-ui/react";
-import React from "react";
+'use client'
+import { Box, Text, Button, VStack, HStack, Circle, useBreakpointValue } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slide1 from './components/svg/slideImage1.svg';
 import Slide2 from './components/svg/slideImage2.svg';
@@ -7,8 +8,26 @@ import Slide3 from './components/svg/slideImage3.svg';
 import GoogleIcon from './components/svg/googleIcon.svg';
 import AppleIcon from './components/svg/appleIcon.svg'
 
+const slides = [
+  { image: Slide1, text: "Shop Smoothly, Save the Maze for Game Night" },
+  { image: Slide2, text: "Type like you talk, Vibe gets it" },
+  { image: Slide3, text: "Spot a style you love? Let's find its twin" },
+];
+
 export default function Home() {
   // const isMobile = useBreakpointValue({ base: true, md: false });
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleSlideChange = (index) => {
+    setCurrentSlide(index);
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 5000); // 5 seconds delay
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Box display="flex" flexDirection={{ base: "column", md: "row" }} minH="100vh">
@@ -54,38 +73,47 @@ export default function Home() {
       </VStack>
 
       <Box
-        flex={1}
-        bg="#C7DAE9"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        position="relative"
-        flexDirection={'column'}
-        gap={{md:'2rem',base:'1rem'}}
+      flex={1}
+      bg="#C7DAE9"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      position="relative"
+      flexDirection="column"
+      gap={{ md: '2rem', base: '1rem' }}
+    >
+      <Image
+        src={slides[currentSlide].image}
+        alt="Slide illustration"
+        width={'441px'}
+        height={'217px'}
+        style={{ zIndex: '1' , width:'441px',height:'217px'}}
+      />
+      <Text
+        fontSize={{ md: '2rem', base: '1.15rem' }}
+        fontWeight="700"
+        textAlign="center"
+        zIndex="2"
+        lineHeight={{ md: '41.6px', base: '35px' }}
+        letterSpacing="-1%"
+        fontFamily="Figtree"
+        mx={{ md: '8rem', base: '0.5rem' }}
+        mt={{ md: '3rem', base: '0.5rem' }}
       >
-        <Image
-          src={Slide1}
-          alt="Maze illustration"
-          boxSize="80%"
-          objectFit="contain"
-          style={{zIndex:'1'}}
-        />
-        <Text
-          // position="absolute"
-          bottom={4}
-          fontSize={{md:'2rem',base:'1.15rem'}}
-          fontWeight="700"
-          textAlign="center"
-          zIndex={'2'}
-          lineHeight={{md:'41.6px',base:'35px'}}
-          letterSpacing={'-1%'}
-          fontFamily={'Figtree'}
-          mx={{md:'4rem',base:'0.5rem'}}
-          mt={{md:'3rem',base:'0.5rem'}}
-        >
-          Shop Smoothly, <br></br> Save the Maze for Game Night
-        </Text>
-      </Box>
+        {slides[currentSlide].text}
+      </Text>
+      <HStack spacing={2} mt={4}>
+        {slides.map((_, index) => (
+          <Circle
+            key={index}
+            size="10px"
+            bg={currentSlide === index ? "black" : "white"}
+            onClick={() => handleSlideChange(index)}
+            cursor="pointer"
+          />
+        ))}
+      </HStack>
+    </Box>
     </Box>
   );
 }
