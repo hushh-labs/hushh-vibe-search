@@ -27,8 +27,8 @@ const Footer = () => {
 </svg>
  Labs, 2024
         </Text>
-        <Flex color={'#70757A'} fontSize={{md:'1rem',base:'0.65rem'}} lineHeight={'27px'} letterSpacing={'0.5%'} fontWeight={'400'} p={2} minW={"100%"} bg={"#BDCFDE"} justifyContent="space-between">
-          <Flex>
+        <Flex color={'#70757A'} fontSize={{md:'1rem',base:'0.65rem'}} lineHeight={'27px'} letterSpacing={'0.5%'} fontWeight={'400'}  minW={"100%"} bg={"#BDCFDE"} justifyContent="space-between">
+          <Flex p={2}>
             <Link href="#" marginRight="4" >
               About
             </Link>
@@ -36,7 +36,7 @@ const Footer = () => {
               Business
             </Link>
           </Flex>
-          <Flex>
+          <Flex p={2}>
             <Link href="#" marginRight="4">
               Privacy
             </Link>

@@ -9,6 +9,7 @@ import styles from './Search.module.css';
 import Header from '../components/header';
 import Image from 'next/image';
 import Footer from '../components/footer';
+import VibeText from '../components/svg/vibeText.svg';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -48,9 +49,9 @@ const Search = () => {
       backgroundColor="#FFFFFF"
       className={styles.vibeContainer}
     >
-      <Text fontSize="4xl" fontWeight="bold" marginBottom="4">
-        VIBE
-      </Text>
+      <Box fontSize="4xl" fontWeight="bold" mb={{md:'3rem',base:'1.5rem'}}>
+        <Image src={VibeText} alt='Vibe Search' />
+      </Box>
       <Box
         width={{ base: '90%', md: '60%', lg: '40%' }}
         padding={{ base: '2', md: '4' }}
