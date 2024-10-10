@@ -1,10 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Box, Flex, IconButton, Input, Button, Text } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
+// import { SearchIcon } from '@chakra-ui/icons';
+import SearchIcon from '../components/svg/searchIcon.svg';
+import CameraIcon from '../components/svg/cameraIcon.svg'
 import axios from 'axios';
 import styles from './Search.module.css';
 import Header from '../components/header';
+import Image from 'next/image';
+import Footer from '../components/footer';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -50,11 +54,13 @@ const Search = () => {
       <Box
         width={{ base: '90%', md: '60%', lg: '40%' }}
         padding={{ base: '2', md: '4' }}
-        boxShadow="lg"
+        // boxShadow="lg"
         backgroundColor="white"
+        border={'1px solid #DFE1E5'}
         borderRadius="md"
       >
-        <Flex alignItems="center">
+        <Flex alignItems="center" gap={'2'}>
+        <Image src={SearchIcon} alt='Vibe Search' /> 
           <Input
             placeholder="Search for fashion..."
             value={query}
@@ -64,42 +70,27 @@ const Search = () => {
             border="none"
             _focus={{ outline: 'none', boxShadow: 'none' }}
           />
-          <IconButton
+          <Image
             aria-label="Search"
-            icon={<SearchIcon />}
+            src={CameraIcon}
             onClick={handleSearch}
-            backgroundColor="purple.500"
-            color="white"
             marginLeft="2"
-            _hover={{ backgroundColor: 'purple.600' }}
+            // _hover={{ backgroundColor: 'purple.600' }}
             borderRadius="full"
           />
         </Flex>
-        <Flex marginTop="4" justifyContent="space-between">
-          <Button variant="outline" size="sm" onClick={() => {}}>
+        
+      </Box>
+      <Flex display={'flex'} gap={{md:'2.5rem',base:'1rem'}} marginTop="4" justifyContent="space-between">
+          <Button bg={'#F8F9FA'} p={'10px'} borderRadius={'4px'} border={'1px solid #F8F9FA'} variant="outline" size="sm" onClick={() => {}}>
             Past Searches
           </Button>
-          <Button variant="outline" size="sm" onClick={() => {}}>
+          <Button bg={'#F8F9FA'} p={'10px'} borderRadius={'4px'} border={'1px solid #F8F9FA'} variant="outline" size="sm" onClick={() => {}}>
             Fashion Dice Roll
           </Button>
         </Flex>
-      </Box>
-      <Box position="absolute" bottom="4" left="4">
-        <Text>hushh Labs, 2024</Text>
-      </Box>
-      <Flex position="absolute" bottom="4" right="4">
-        <Button variant="link" marginRight="4">
-          About
-        </Button>
-        <Button variant="link">Business</Button>
-        <Button variant="link" marginLeft="4">
-          Privacy
-        </Button>
-        <Button variant="link" marginLeft="4">
-          Terms
-        </Button>
-      </Flex>
     </Flex>
+    <Footer/>
     </>
   
   );
