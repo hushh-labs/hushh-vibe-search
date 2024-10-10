@@ -70,7 +70,8 @@ export default function Home() {
             Sign Up with Apple 
           </Button>
         </VStack>
-      </VStack>
+        <Text fontFamily={'Figtree'} mt={{md:'2rem',base:'1rem'}} color={'#0000008A'} fontSize={{md:'1rem',base:'0.75rem'}} fontWeight={'400'} lineHeight={'11px'}>Powered by hushh.ai</Text>
+    </VStack>
 
       <Box
       flex={1}
