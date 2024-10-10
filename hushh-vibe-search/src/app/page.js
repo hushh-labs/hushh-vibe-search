@@ -85,9 +85,9 @@ export default function Home() {
       <Image
         src={slides[currentSlide].image}
         alt="Slide illustration"
-        width={'441px'}
-        height={'217px'}
-        style={{ zIndex: '1' , width:'441px',height:'217px'}}
+        width={'579px'}
+        height={'286px'}
+        style={{ zIndex: '1'}}
       />
       <Text
         fontSize={{ md: '2rem', base: '1.15rem' }}
@@ -97,17 +97,17 @@ export default function Home() {
         lineHeight={{ md: '41.6px', base: '35px' }}
         letterSpacing="-1%"
         fontFamily="Figtree"
-        mx={{ md: '8rem', base: '0.5rem' }}
+        mx={{ md: '10rem', base: '0.5rem' }}
         mt={{ md: '3rem', base: '0.5rem' }}
       >
         {slides[currentSlide].text}
       </Text>
-      <HStack spacing={2} mt={4}>
+      <HStack spacing={10} mt={4}>
         {slides.map((_, index) => (
           <Circle
             key={index}
             size="10px"
-            bg={currentSlide === index ? "black" : "white"}
+            bg={currentSlide === index ? "#1E1E48" : "#BBBBCA"}
             onClick={() => handleSlideChange(index)}
             cursor="pointer"
           />
