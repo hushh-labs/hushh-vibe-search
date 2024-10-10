@@ -7,6 +7,7 @@ import Slide2 from './components/svg/slideImage2.svg';
 import Slide3 from './components/svg/slideImage3.svg';
 import GoogleIcon from './components/svg/googleIcon.svg';
 import AppleIcon from './components/svg/appleIcon.svg'
+import Link from "next/link";
 
 const slides = [
   { image: Slide1, text: "Shop Smoothly, Save the Maze for Game Night" },
@@ -70,7 +71,7 @@ export default function Home() {
             Sign Up with Apple 
           </Button>
         </VStack>
-        <Text fontFamily={'Figtree'} mt={{md:'2rem',base:'1rem'}} color={'#0000008A'} fontSize={{md:'1rem',base:'0.75rem'}} fontWeight={'400'} lineHeight={'11px'}>Powered by hushh.ai</Text>
+        <Link href={'wwww.hush1one.com'}> <Text  fontFamily={'Figtree'} mt={{md:'2rem',base:'1rem'}} color={'#0000008A'} fontSize={{md:'1rem',base:'0.75rem'}} fontWeight={'400'} lineHeight={'11px'}>Powered by hushh.ai</Text></Link>
     </VStack>
 
       <Box
