@@ -8,17 +8,18 @@ import Slide3 from './components/svg/slideImage3.svg';
 import GoogleIcon from './components/svg/googleIcon.svg';
 import AppleIcon from './components/svg/appleIcon.svg'
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const slides = [
-  { image: Slide1, text: "Shop Smoothly, Save the Maze for Game Night" },
-  { image: Slide2, text: "Type like you talk, Vibe gets it" },
-  { image: Slide3, text: "Spot a style you love? Let's find its twin" },
+  { image: Slide1, text: "Shop Smoothly,",text2:"Save the Maze for Game Night" },
+  { image: Slide2, text: "Type like you talk,",text2:" Vibe gets it" },
+  { image: Slide3, text: "Spot a style you love?" , text2:"Let's find its twin"},
 ];
 
 export default function Home() {
   // const isMobile = useBreakpointValue({ base: true, md: false });
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const router = useRouter();
   const handleSlideChange = (index) => {
     setCurrentSlide(index);
   };
@@ -99,10 +100,23 @@ export default function Home() {
         lineHeight={{ md: '41.6px', base: '35px' }}
         letterSpacing="-1%"
         fontFamily="Figtree"
-        mx={{ md: '10rem', base: '0.5rem' }}
+        mx={{ md: '70%', base: '0.5rem' }}
         mt={{ md: '3rem', base: '0.5rem' }}
       >
-        {slides[currentSlide].text}
+        {slides[currentSlide].text} 
+      </Text>
+      <Text
+        fontSize={{ md: '2rem', base: '1.15rem' }}
+        fontWeight="700"
+        textAlign="center"
+        zIndex="2"
+        lineHeight={{ md: '41.6px', base: '35px' }}
+        letterSpacing="-1%"
+        fontFamily="Figtree"
+        mx={{ md: '70%', base: '0.5rem' }}
+        // mt={{ md: '3rem', base: '0.5rem' }}
+      >
+        {slides[currentSlide].text2}
       </Text>
       <HStack spacing={10} mt={4}>
         {slides.map((_, index) => (

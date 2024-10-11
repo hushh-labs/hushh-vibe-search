@@ -10,6 +10,7 @@ import Header from '../components/header';
 import Image from 'next/image';
 import Footer from '../components/footer';
 import VibeText from '../components/svg/vibeText.svg';
+import IntroModal from '../components/primitive/introModal';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -41,6 +42,7 @@ const Search = () => {
   return (
     <>
     <Header/>
+    <IntroModal/>
         <Flex
       direction="column"
       align="center"
