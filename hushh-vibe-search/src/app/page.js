@@ -9,6 +9,7 @@ import GoogleIcon from './components/svg/googleIcon.svg';
 import AppleIcon from './components/svg/appleIcon.svg'
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import SearchGif from './components/gif/searchGif.gif';
 
 const slides = [
   { image: Slide1, text: "Shop Smoothly,",text2:"Save the Maze for Game Night" },
@@ -83,7 +84,7 @@ export default function Home() {
       justifyContent="center"
       position="relative"
       flexDirection="column"
-      gap={{ md: '2rem', base: '1rem' }}
+      // gap={{ md: '2rem', base: '1rem' }}
     >
       <Image
         src={slides[currentSlide].image}
@@ -100,7 +101,7 @@ export default function Home() {
         lineHeight={{ md: '41.6px', base: '35px' }}
         letterSpacing="-1%"
         fontFamily="Figtree"
-        mx={{ md: '70%', base: '0.5rem' }}
+        // mx={{ md: '70%', base: '0.5rem' }}
         mt={{ md: '3rem', base: '0.5rem' }}
       >
         {slides[currentSlide].text} 
@@ -113,12 +114,12 @@ export default function Home() {
         lineHeight={{ md: '41.6px', base: '35px' }}
         letterSpacing="-1%"
         fontFamily="Figtree"
-        mx={{ md: '70%', base: '0.5rem' }}
+        // mx={{ md: '70%', base: '0.5rem' }}
         // mt={{ md: '3rem', base: '0.5rem' }}
       >
         {slides[currentSlide].text2}
       </Text>
-      <HStack spacing={10} mt={4}>
+      <HStack spacing={10} mt={16}>
         {slides.map((_, index) => (
           <Circle
             key={index}
