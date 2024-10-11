@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
           rel="stylesheet"
         />
+        <meta name="fo-verify" content="99078900-a479-470d-b88b-0b406b195229" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
