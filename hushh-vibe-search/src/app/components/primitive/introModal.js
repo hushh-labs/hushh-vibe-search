@@ -53,12 +53,14 @@ function IntroModal() {
         alignItems={'center'}
         justifyContent={'center'}
         textAlign={'center'}
+        minW={'940px'}
+        minH={'490px'}
         maxW="940px"
         maxH={'540px'}
         borderRadius="md"
         boxShadow="lg"
       >
-        <ModalCloseButton />
+        <ModalCloseButton top={'10px'} right={'20px'} pos={'absolute'}/>
         <Box
         alignItems="center"
         justifyContent="center"
